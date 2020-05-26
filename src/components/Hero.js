@@ -16,7 +16,7 @@ const Hero = () => {
           housings in the world
         </p>
         <button className="outline-none border-none bg-orange-600 text-white font-bold block text-sm py-4 px-20 rounded-lg focus:shadow-outline hover:bg-orange-500">
-          Get started
+          Get Started
         </button>
       </div>
     </section>

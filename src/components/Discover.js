@@ -23,17 +23,49 @@ const moods = [
   },
 ];
 
-const Card = ({ title, location, imgSrc }) => (
-  <div className="h-64 w-48 p-5 flex flex-shrink-0 text-gray-300  rounded-lg mr-5 flex-col justify-end bg-gray-800 text-white">
-    <h3 className="mb-2 text-sm font-bold">{title}</h3>
-    <div className="text-xs">
-      <span className="mr-2">
-        <i class="fas fa-map-marker-alt"></i>
-      </span>
-      <span className="">{location}</span>
+const experiences = [
+  {
+    title: "Kayaking at the village Gudvangen",
+    imgSrc:
+      "https://images.unsplash.com/photo-1521336575822-6da63fb45455?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    location: "Norway",
+  },
+  {
+    title: "Breathtaking antelope Canyon Tour",
+    imgSrc:
+      "https://images.unsplash.com/photo-1569200759280-137a1a1695fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    location: "Arizona, USA",
+  },
+  {
+    title: "Breathtaking antelope Canyon Tour",
+    imgSrc:
+      "https://images.unsplash.com/photo-1575552286163-7ca796f555a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    location: "Norway",
+  },
+];
+
+const Card = ({ title, location, imgSrc }) => {
+  const backgroundImage = `linear-gradient(
+                              to bottom, 
+                              transparent 0 40%, 
+                              rgba(0,0,0,.2) 55%, 
+                              rgba(0,0,0,.9)),
+                          url("${imgSrc}")`;
+  return (
+    <div
+      style={{ backgroundImage }}
+      className="h-64 w-48 p-5 flex flex-shrink-0 text-gray-300 bg-cover bg-center rounded-lg mr-5 flex-col justify-end bg-gray-800 text-white"
+    >
+      <h3 className="mb-2 text-sm font-bold leading-tight">{title}</h3>
+      <div className="text-xs">
+        <span className="mr-2">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        <span className="">{location}</span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Discover = () => (
   <section className="w-2/5 bg-white px-12 py-10">
@@ -71,25 +103,22 @@ const Discover = () => (
       <h1 className="text-gray-900 mb-3 text-3xl font-bold">Discover</h1>
       <nav className="mb-5">
         <ul className="flex items-center">
-          <li className="mr-8 text-xl font-bold text-orange-600 cursor-pointer">
+          <li className="mr-8 text-base font-semibold text-orange-600 cursor-pointer">
             Experiences
           </li>
-          <li className="mr-8 text-xl  font-bold text-gray-400 cursor-pointer">
+          <li className="mr-8 text-base  font-semibold text-gray-400 cursor-pointer">
             Places
           </li>
-          <li className="text-xl font-bold text-gray-400 cursor-pointer">
+          <li className="text-base font-semibold text-gray-400 cursor-pointer">
             Housings
           </li>
         </ul>
       </nav>
 
       <div className="flex flex-no-wrap overflow-x-auto">
-        <Card title="Kayaking at the village Gudvangen" location="Norway" />
-        <Card
-          title="Breathtaking antelope Canyon Tour"
-          location="Arizona, USA"
-        />
-        <Card title="Kayaking at the village Gudvangen" location="Norway" />
+        {experiences.map((exp, index) => (
+          <Card key={index} {...exp} />
+        ))}
       </div>
     </section>
 
@@ -100,7 +129,10 @@ const Discover = () => (
       </header>
       <div className="flex">
         {moods.map((mood, index) => (
-          <div className="mr-4 font-semibold text-center">
+          <div
+            key={index}
+            className="mr-4 font-semibold flex flex-col text-center"
+          >
             <span className="text-2xl text-orange-600">
               <i className={mood.iconClass}></i>
             </span>
