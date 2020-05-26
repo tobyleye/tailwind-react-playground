@@ -578,32 +578,38 @@ video {
   height: auto;
 }
 
-.container {
-  width: 100%;
+body {
+  font-family: "Open sans", sans-serif;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
+.hero {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.44), rgba(0,0,0,.75)),
+                        url(https://images.unsplash.com/photo-1590415398282-87cc868499c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80);
+  background-position: center;
+  background-size: cover;
+  border-top-right-radius: 2.4rem;
+  border-bottom-right-radius: 2.4rem;
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
+.hero-body p {
+  font-size: 14px;
 }
 
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
+.logo {
+  font-size: 23px;
+  letter-spacing: 1.5px;
 }
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
+/*  logo dot */
+
+.logo::after {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  margin-left: 2px;
+  background: #dd6b20;
 }
 
 .space-y-0 > :not(template) ~ :not(template) {
