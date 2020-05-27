@@ -1,5 +1,4 @@
 @import "tailwindcss/base";
-@import "./global.css";
 @import "./hero.css";
 @import "./discover.css";
 @import "tailwindcss/utilities";

@@ -73,7 +73,7 @@ const Discover = () => (
       <input
         type="text"
         placeholder="Search"
-        className="block w-full outline-none"
+        className="block w-full outline-none font-sans"
       />
     </div>
 
